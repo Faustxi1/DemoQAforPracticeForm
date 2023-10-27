@@ -22,38 +22,46 @@ public class TestQAForm {
     }
     @Test
     void FormQa() {
+
         // открываем сайт
         open("https://demoqa.com/automation-practice-form");
-        // вводим имя
-        $("[id=firstName]").setValue(name);
-        // введи фамилию
-        $("[id=lastName]").setValue(lastName);
-        // введи маил
-        $("[id=userEmail]").setValue(mail);
-        // выбираю male
-        $$("div.custom-control").first().click();
-        $("[id=userNumber]").setValue(number);
+
+        new RegPages()
+                .setFirstName("Alex")
+                .setLastName("Lover")
+                .setMail("us@mail.ru")
+                .setGender("Male")
+                .SetNumber("52658")
+                .Setbirthday("01","02","2010")
+                .SetSubjects("Arts")
+                .SetHobby("Music")
+                .SetPictures("1.jpg")
+                .SetAddInfo("Belgorod2")
+                .SetstateDropdown("Haryana")
+                .SetcityDropDown("Panipat");
+              //  .stateAndCityChoice(SetstateDropdown +" "+ SetcityDropDown);
+
         // указываю дату
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionContainingText("June");
-        $(".react-datepicker__year-select").selectOptionContainingText("2020");
-        $(".react-datepicker__day.react-datepicker__day--021").click();
+        // $("#dateOfBirthInput").click();
+        //  $(".react-datepicker__month-select").selectOptionContainingText("June");
+        //  $(".react-datepicker__year-select").selectOptionContainingText("2020");
+        //  $(".react-datepicker__day.react-datepicker__day--021").click();
         // напрвление
-        $("#subjectsInput").sendKeys("E");
-        $(byText("English")).click();
+        //   $("#subjectsInput").sendKeys("E");
+        // $(byText("English")).click();
         // хобби
-        $("#hobbiesWrapper").$(byText("Sports")).click();
+        //  $("#hobbiesWrapper").$(byText("Sports")).click();
         // гружу картинку
         // $("#uploadPicture").uploadFile(new File("src/main/resources/IMG/1.png")); - это если мы хотим полный путь
-        $("#uploadPicture").uploadFromClasspath("IMG/1.png");
+        // $("#uploadPicture").uploadFromClasspath("IMG/1.png");
         //$(byText("Навыки")).doubleClick();
         //указываю доп. инфу
-        $("[id=currentAddress]").setValue("Belgorod2");
-        Selenide.executeJavaScript("$('#fixedban').remove()");
+        //  $("[id=currentAddress]").setValue("Belgorod2");
+        //  Selenide.executeJavaScript("$('#fixedban').remove()");
         //ввожу штат и город
-        $$("#stateCity-wrapper").first().click();
-        $(byText("NCR")).click();
-        $$("#city").last().click();
-        $(byText("Delhi")).click();
+        // $$("#stateCity-wrapper").first().click();
+        // $(byText("NCR")).click();
+        // $$("#city").last().click();
+        // $(byText("Delhi")).click();
     }
 }
