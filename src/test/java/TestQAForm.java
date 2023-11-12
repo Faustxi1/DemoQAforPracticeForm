@@ -25,6 +25,7 @@ public class TestQAForm {
 
         // открываем сайт
         open("https://demoqa.com/automation-practice-form");
+        Selenide.executeJavaScript("$('#fixedban').remove()");
 
         new RegPages()
                 .setFirstName("Alex")
@@ -32,10 +33,10 @@ public class TestQAForm {
                 .setMail("us@mail.ru")
                 .setGender("Male")
                 .SetNumber("52658")
-                .Setbirthday("01","02","2010")
+                .Setbirthday("10","November","1990")
                 .SetSubjects("Arts")
                 .SetHobby("Music")
-                .SetPictures("1.jpg")
+                .SetPictures("1.png")
                 .SetAddInfo("Belgorod2")
                 .SetstateDropdown("Haryana")
                 .SetcityDropDown("Panipat");

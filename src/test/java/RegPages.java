@@ -5,6 +5,8 @@ import Components.CalendarComponent;
 import Components.RegistrationResultsModal;
 
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -17,7 +19,7 @@ public class RegPages {
     lastNameInput = $("#lastName"),    // введи фамилию
     mailInput = $("#userEmail"),  // введи маил
     ClickGender = $("#genterWrapper"), // выбираю male
-    NumberInput =  $("[#userNumber]"), // ввод телефона
+    NumberInput =  $("#userNumber"), // ввод телефона
     dateOfBirthInput =  $("#dateOfBirthInput"), // указываю дату
     SubjectsInput = $("#subjectsInput"),  // напрвление
     HobbyInput =  $("#hobbiesWrapper"),   // хобби
@@ -65,8 +67,8 @@ public class RegPages {
         HobbyInput.$(byText(value)).click();
         return this;
     }
-    public RegPages SetPictures(String value) {
-        PictiresUpload.uploadFromClasspath(IMG_FOLDER + value);
+    public RegPages SetPictures(String filename) {
+        PictiresUpload.uploadFile(new File("src/main/resources/IMG/" + filename));
         return this;
     }
     public RegPages SetAddInfo(String value) {
